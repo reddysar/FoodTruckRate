@@ -1,0 +1,29 @@
+<html>
+  <head>
+        <script src="/static/scripts/lib/jquery.min.js"></script>
+        <script src="/static/scripts/main.js"></script>
+        <link rel="stylesheet" href="/static/styles/styles.css" type="text/css" />
+  </head>
+  <body>
+        <div class="topnav">
+                <a class="active" href="/">Home</a>
+                <a href="/account/logout">Logout</a>
+                <a href="#feed">Feed</a>
+                <a href="/profile">Profile</a>
+              </div>
+        <p> <%= currentUser.username %>'s Profile</p>
+        <p> Comments: </p>
+        <% currentUser.comments.forEach(function(q) { %>
+            <li><%= q.truck %> : <%=q.comment %></li>
+            <% }) %>
+        <p> Liked Trucks</p>
+        <% currentUser.trucks.forEach(function(q) { %>
+            <li><%= q %></li>
+            <% }) %>
+        <p>Following</p>
+        <% currentUser.following.forEach(function(q) { %>
+            <li><%= q.username %></li>
+            <% }) %>
+            <a class="btn" type="submit" id="follow-user">Follow</a>
+  </body>
+</html>
