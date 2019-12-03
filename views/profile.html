@@ -22,8 +22,9 @@
             <% }) %>
         <p>Following</p>
         <% currentUser.following.forEach(function(q) { %>
+            <% if (q != null) { %>
             <li><%= q.username %></li>
-            <% }) %>
+            <% }}) %>
             <a class="btn" type="submit" id="follow-user">Follow</a>
   </body>
 </html>
